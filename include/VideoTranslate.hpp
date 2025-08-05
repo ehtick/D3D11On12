@@ -71,7 +71,7 @@ namespace D3D11On12
                 D3D11_1DDI_VIDEO_DECODER_BUFFER_BITSTREAM,
                 D3D11_1DDI_VIDEO_DECODER_BUFFER_UNKNOWN                     // TODO: what to do for VP9 probability buffer???
             };
-            if (Type < D3D12TranslationLayer::VIDEO_DECODE_BUFFER_TYPE_SIZEOF)
+            if (Type >= 0 && Type < D3D12TranslationLayer::VIDEO_DECODE_BUFFER_TYPE_SIZEOF)
             {
                 return map[Type];
             }
@@ -96,7 +96,7 @@ namespace D3D11On12
                 (D3D12_VIDEO_DECODE_ARGUMENT_TYPE)-1,
                 (D3D12_VIDEO_DECODE_ARGUMENT_TYPE)-1,
             };
-            if (Type11 <= D3D11_1DDI_VIDEO_DECODER_BUFFER_FILM_GRAIN)
+            if (Type11 >= 0 && Type11 <= D3D11_1DDI_VIDEO_DECODER_BUFFER_FILM_GRAIN)
             {
                 return map[Type11];
             }
