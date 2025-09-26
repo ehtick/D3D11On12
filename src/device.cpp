@@ -1163,6 +1163,11 @@ namespace D3D11On12
             auto* pCommandListManager = ImmCtx.GetCommandListManager(static_cast<D3D12TranslationLayer::COMMAND_LIST_TYPE>(i));
             if (pCommandListManager)
             {
+                if(pCommandListManager->GetCommandQueue() == pCommmandQueue)
+                {
+					// Don't wait on the queue owned by the command list manager. This would cause a wait to be placed before the signal, causing a deadlock.
+                    continue;
+				}
                 UINT64 WaitValue = pResource->m_LastUsedCommandListID[i];
 
                 if (WaitValue > pCommandListManager->GetCompletedFenceValue())
