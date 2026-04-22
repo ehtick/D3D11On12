@@ -37,7 +37,7 @@ namespace D3D11On12
             return (pView) ? pView->GetTranslationLayerView() : nullptr;
         }
 
-        static void GatherViewsFromHandles(typename const Traits::ViewHandle* pHViews, typename Traits::TranslationLayerView ** pUnderlying, UINT count)
+        static void GatherViewsFromHandles(const typename Traits::ViewHandle* pHViews, typename Traits::TranslationLayerView ** pUnderlying, UINT count)
         {
             for (size_t i = 0; i < count; i++)
             {
