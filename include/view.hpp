@@ -11,7 +11,7 @@ namespace D3D11On12
 #define DECLARE_VIEW_TRAITS(View, AbbreviatedView, DDIDescType, HandleType) \
     template<> struct ViewTraits<ID3D11##View> \
     { \
-    typedef D3D12TranslationLayer::##AbbreviatedView TranslationLayerView; \
+    typedef D3D12TranslationLayer::AbbreviatedView TranslationLayerView; \
     typedef HandleType ViewHandle; \
     typedef DDIDescType DDIDesc; \
     }
